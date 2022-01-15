@@ -35,20 +35,14 @@ function App() {
     }
   }
 
-  const switchColor = () => {
-    setDarkMode('dark');
-    debugger;
-    // document.body.style.backgroundColor = e.target.value;
-  }
-
   return (
     <Router>
       <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode}></Navbar>
       <Alert alert={alert}></Alert>
       <Routes>
-        <Route path="/" element={<TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert}></TextForm>}>
+        <Route exact path="/" element={<TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert}></TextForm>}>
         </Route>
-        <Route path="/about" element={<About mode={mode}></About>}>
+        <Route exact path="/about" element={<About mode={mode}></About>}>
         </Route>
       </Routes>
     </Router>
