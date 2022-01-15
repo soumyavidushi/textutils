@@ -33,6 +33,13 @@ function App() {
       document.title = 'TextUtils - Light Mode';
     }
   }
+
+  const switchColor = () => {
+    setDarkMode('dark');
+    debugger;
+    // document.body.style.backgroundColor = e.target.value;
+  }
+
   return (
     <>
       <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode}></Navbar>
