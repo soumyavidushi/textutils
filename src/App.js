@@ -5,6 +5,7 @@ import TextForm from './components/TextForm';
 import About from './components/About';
 import React, {useState} from 'react';
 import { Alert } from './components/Alert';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 let name = "Soumya";
 function App() {
@@ -41,16 +42,16 @@ function App() {
   }
 
   return (
-    <>
+    <Router>
       <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode}></Navbar>
       <Alert alert={alert}></Alert>
-      <div className="container">
-        <TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert}></TextForm>
-      </div>
-      <div className="container">
-        <About mode={mode}></About>
-      </div>
-    </>
+      <Routes>
+        <Route path="/" element={<TextForm heading="Enter the text to analyze" mode={mode} showAlert={showAlert}></TextForm>}>
+        </Route>
+        <Route path="/about" element={<About mode={mode}></About>}>
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
