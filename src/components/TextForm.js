@@ -15,10 +15,7 @@ export default function TextForm(props) {
         setText('');
     }
     const handleCopy = () => {
-        let text = document.getElementById('myBox');
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection().removeAllRanges();
+        navigator.clipboard.writeText(text);
         props.showAlert("Copied to Clipboard","success");
     }
     const handleExtraSpaces = () => {
@@ -34,7 +31,7 @@ export default function TextForm(props) {
         let htmlDoc = parser.parseFromString(text, 'text/html');
     } */
     const getWordCount = () => {
-        const wordArray = text.split(' ').filter(item => item!=='');
+        const wordArray = text.split(/\s+/).filter(item => item!=='');
         let len = wordArray.length;
         return len;
     }
