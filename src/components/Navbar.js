@@ -23,9 +23,14 @@ export default function Navbar(props) {
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-primary" type="submit">Search</button>
                     </form>*/}
-                    <input type="color" change={props.switchColor}/>
+                    <div className="d-flex">
+                        <div className="bg-primary rounded mx-2" style={{height: '30px', width: '30px', cursor: 'pointer'}} onClick={() => props.toggleMode('primary')}></div>
+                        <div className="bg-danger rounded mx-2" style={{height: '30px', width: '30px', cursor: 'pointer'}} onClick={() => props.toggleMode('danger')}></div>
+                        <div className="bg-success rounded mx-2" style={{height: '30px', width: '30px', cursor: 'pointer'}} onClick={() => props.toggleMode('success')}></div>
+                        <div className="bg-warning rounded mx-2" style={{height: '30px', width: '30px', cursor: 'pointer'}} onClick={() => props.toggleMode('warning')}></div>
+                    </div>
                     <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
-                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
+                        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={() => props.toggleMode(null)}/>
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode} theme</label>
                     </div>
                 </div>
